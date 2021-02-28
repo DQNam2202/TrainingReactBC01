@@ -15,13 +15,15 @@ import BaiTapChonXe from './StateReact/BaiTapChonXe';
 import RenderWithMap from './RenderWithMap/RenderWithMap';
 import BaiTapRenderMap from './RenderWithMap/BaiTapRenderMap';
 import DemoProps from './Props/DemoProps';
+import DemoQLSP from './Props/DemoQLSP/DemoQLSP';
+import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
 
 function App() {
   return (
     <div className="App">
+      {/* <BTProductList /> */}
       {/* <BTHeader/>
       <BTSlider/>
-      <BTProductList/>
       <BTProduct />
       <BTFooter/> */}
       {/* <DataBinding/> */}
@@ -30,7 +32,9 @@ function App() {
       {/* <BaiTapChonXe /> */}
       {/* <RenderWithMap /> */}
       {/* <BaiTapRenderMap /> */}
-      <DemoProps />
+      {/* <DemoProps /> */}
+      {/* <DemoQLSP / > */}
+      <BTGioHangRedux />
     </div>
   );
 }
