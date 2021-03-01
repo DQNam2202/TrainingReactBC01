@@ -17,6 +17,7 @@ import BaiTapRenderMap from './RenderWithMap/BaiTapRenderMap';
 import DemoProps from './Props/DemoProps';
 import DemoQLSP from './Props/DemoQLSP/DemoQLSP';
 import BTGioHangRedux from './DemoRedux/BTGioHangRedux/BTGioHangRedux';
+import BaiTapGameXucXac from './DemoRedux/BaiTapGameXucXac/BaiTapGameXucXac';
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
       {/* <BaiTapRenderMap /> */}
       {/* <DemoProps /> */}
       {/* <DemoQLSP / > */}
-      <BTGioHangRedux />
+      {/* <BTGioHangRedux /> */}
+      <BaiTapGameXucXac />
     </div>
   );
 }
