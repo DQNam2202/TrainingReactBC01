@@ -11,6 +11,7 @@ import { store } from "./redux/configStore";
 
 ReactDOM.render(
   
+    // Cung cấp store cho toàn bộ component
     <Provider store={store}>
       <App />
     </Provider>,

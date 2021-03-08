@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 
-export default class XucXac extends Component {
+// Bước 1:
+import {connect} from 'react-redux'
+class XucXac extends Component {
     render() {
         return (
           <div className="container mt-5">
             <div className="row text-center">
               <div className="col-4">
-                <button style={{ border: "none" }} className="btn btn-danger">
+                <button onClick={()=>{
+                  this.props.chonTaiXiu("Tài");
+                }} style={{ border: "none" }} className="btn btn-danger">
                   <div
                     className="p-5 bg-danger text-white w-100 h-100"
                     style={{ fontSize: 50 }}
@@ -16,12 +20,14 @@ export default class XucXac extends Component {
                 </button>
               </div>
               <div className="col-4">
-                <img src="./img/1.png" width="50" style={{marginRight:"5px"}}></img>
-                <img src="./img/1.png" width="50" style={{marginRight:"5px"}}></img>
-                <img src="./img/1.png" width="50" style={{marginRight:"5px"}}></img>
+                  {this.props.mangXucXac.map((xucXac,index)=>{
+                    return <img key={index} src={xucXac.hinhAnh} width="50"></img>
+                  })}
               </div>
               <div className="col-4">
-                <button style={{ border: "none" }} className="btn btn-dark">
+                <button onClick={()=>{
+                  this.props.chonTaiXiu("Xỉu")
+                }} style={{ border: "none" }} className="btn btn-dark">
                   <div
                     className="p-5 bg-dark text-white w-100 h-100"
                     style={{ fontSize: 50 }}
@@ -35,3 +41,32 @@ export default class XucXac extends Component {
         );
     }
 }
+
+
+const mapStateToProps = (state) => ({
+  mangXucXac: state.baiTapGameReducer.mangXucXac
+}) // state là rootReducer // return {} => ({})
+
+const mapDispathToProps = (dispatch)=>{
+  return{
+    chonTaiXiu: (giaTri)=>{
+      // console.log("giá trị",giaTri);
+
+      // Gửi giá trị được chọn lên redux
+      const action ={
+        type:"CHON_TAI_XIU",
+        giaTri
+      };
+      dispatch(action);
+    }
+  }
+}
+
+// let show = (value)=>{
+//   console.log(value);
+// }
+// mapDispathToProps(value);
+
+// Bước 2:
+// khi bỏ map sẽ biến thành props
+export default connect(mapStateToProps,mapDispathToProps)(XucXac)
